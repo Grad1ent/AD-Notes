@@ -110,7 +110,7 @@ or trying to generate all kind of diagram layouts to choose the most suitable to
 1. [Official GraphViz web site](http://www.graphviz.org)
 2. [Dot guide](http://www.graphviz.org/pdf/dotguide.pdf)
 3. [Wikipedia about GraphViz](http://en.wikipedia.org/wiki/Graphviz)
-4. [Active Directory Topology Visualization part 2]()
+4. [Active Directory Topology Visualization part 2](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
 
 
 Let the “more readable replication topology” be with you.
