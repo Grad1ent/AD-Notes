@@ -78,7 +78,7 @@ twopi *.dot -Tjpg -otwopi.jpg
 
 Dot file can be prepared manually or a bit smarter. Below vbs is my own developed and many time used script which queries AD regarding to sites, domain controllers and connection objects and generates dot launguage file used later in GraphViz package.
 
-Vbs script is available to download here and feel free to use it:
+Vbs script is available to download [here]() and feel free to use it:
 ```cmd
 cscript /nologo getReplicationTopologyLite.vbs DC
 ```
@@ -107,10 +107,10 @@ or trying to generate all kind of diagram layouts to choose the most suitable to
 
 ## A few useful links:
 
-1. [Official GraphViz web site](http://www.graphviz.org)
-2. [Dot guide](http://www.graphviz.org/pdf/dotguide.pdf)
-3. [Wikipedia about GraphViz](http://en.wikipedia.org/wiki/Graphviz)
-4. [Active Directory Topology Visualization part 2](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
+* [Official GraphViz web site](http://www.graphviz.org)
+* [Dot guide](http://www.graphviz.org/pdf/dotguide.pdf)
+* [Wikipedia about GraphViz](http://en.wikipedia.org/wiki/Graphviz)
+* [Active Directory Topology Visualization part 2](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
 
 
 Let the “more readable replication topology” be with you.
