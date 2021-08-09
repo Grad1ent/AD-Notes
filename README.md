@@ -1,7 +1,6 @@
 ## Table of Contents
 * [Welcome](#welcome)
 * [Articles](#general-information)
-* [Acknowledgements](#acknowledgements)
 * [About me](#about-me)
 
 ## Welcome
@@ -11,8 +10,6 @@ The following articles describe solutions developed during daily maintenance of 
 * [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
 * [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
 
-
-## Acknowledgements
 
 
 ## About me
