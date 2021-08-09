@@ -1,12 +1,11 @@
 # Active Directory and around
 
 ## Table of Contents
-* [General Info](#general-information)
+* [Articles](#general-information)
 * [Acknowledgements](#acknowledgements)
 * [About me](#about-me)
 
-
-## General Information
+## Articles
 
 
 ## Acknowledgements
