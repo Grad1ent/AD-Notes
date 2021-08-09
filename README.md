@@ -105,7 +105,7 @@ DIGRAPH replicationTopology {
 ```
 or trying to generate all kind of diagram layouts to choose the most suitable to study. In most cases huge networks need specific approach.
 
-## A few useful links:
+## A few useful links
 
 * [Official GraphViz web site](http://www.graphviz.org)
 * [Dot guide](http://www.graphviz.org/pdf/dotguide.pdf)
