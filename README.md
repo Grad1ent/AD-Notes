@@ -51,9 +51,9 @@ DIGRAPH replicationTopologyLite {
 }
 ```
 note:
-– AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
-– AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
-– example of server picture to put into the same folder where topology.dot is located:
+* – AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
+* – AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
+* – example of server picture to put into the same folder where topology.dot is located:
 [](/pics/server.png)
 
 2. Command to generate picture of dot diagram layout:
@@ -61,4 +61,30 @@ note:
 dot topology.dot -Tjpg -O
 ```
 and result:
-[]()
+[](/pics/dot-211x300.jpg)
+
+3. Examples of commands to generate all kind of diagram layouts:
+``` cmd
+dot *.dot -Tjpg -odot.jpg
+fdp *.dot -Tjpg -ofdp.jpg
+sfdp *.dot -Tjpg -osfdp.jpg
+circo *.dot -Tjpg -ocirco.jpg
+neato *.dot -Tjpg -oneato.jpg
+osage *.dot -Tjpg -oosage.jpg
+twopi *.dot -Tjpg -otwopi.jpg
+```
+
+## Practice
+
+Dot file can be prepared manually or a bit smarter. Below vbs is my own developed and many time used script which queries AD regarding to sites, domain controllers and connection objects and generates dot launguage file used later in GraphViz package.
+
+Vbs script is available to download here and feel free to use it:
+```cmd
+cscript /nologo getReplicationTopologyLite.vbs DC
+```
+
+## Gallery
+
+Below diagrams are examples of AD replication topology:
+
+
