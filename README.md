@@ -6,8 +6,8 @@
 * [About me](#about-me)
 
 ## Articles
-[Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
-[Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
+* [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
+* [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
 
 
 ## Acknowledgements
