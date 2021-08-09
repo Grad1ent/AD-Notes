@@ -1,23 +1,5 @@
-# Active Directory and around
+If you have a look closer into Active Directory Topology Visualization part 1 solution developed some time ago you will find that vbs script queries one domain controller to find replication topology. It is quick approach to have overview of AD replication ASAP. However it represents viewpoint only of this domain controller and sometimes it doesn’t have to be objective true.
 
-## Table of Contents
-* [Articles](#general-information)
-* [Acknowledgements](#acknowledgements)
-* [About me](#about-me)
+If domain controllers replicate each other without any issues and there isn’t any modification in numbers of them (adding, removing, etc.) topology should look very the same on every DC and above solution is absolutely enough. But to have proper recognition of condition of AD environment during its modification there is needed something more comprehensive.
 
-## Articles
-
-
-## Acknowledgements
-
-
-## About me
-My name is Wojciech (ref: http://en.wikipedia.org/wiki/Wojciech).
-
-It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fit 1000 years ago to warriors or any other persons enjoying of war. So right now it’s just tradition to name children like their grandpas or whoever. As the result I’m only “happy in battle” if I get top rank in Battlefield gameplay :D.
-
-My surname means nothing. However it seems core “Pazdzier” is connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surname occured in XVI century in Lithuania. Whatever.
-
-To avoid rising entropy in the Universe because of posting doubled info and if you don’t mind I’d like to kindly ask you to have a look in my Linkedin profile to find more details about my technical background:
-
-https://www.linkedin.com/in/wojciechpazdzierkiewicz/
+Here is my trial to find full overview of AD physical topology and condition of replication as a side effect of quering every particular domain controller in our environment. Below vbs script queries all DCs found in AD, formats information about sites, servers and connection objects into dot syntax and controls pictures of nodes (here: domain controllers) and labels of edges (here: connection objects) to report issues in topology: orphan or not accessible DCs or connection objects just generated and not seen by other DCs.
