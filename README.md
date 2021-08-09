@@ -22,5 +22,4 @@ My surname means nothing. However it seems core “Pazdzier” is connected some
 
 To avoid rising entropy in the Universe because of posting doubled info and if you don’t mind I’d like to kindly ask you to have a look in my Linkedin profile to find more details about my technical background:
 
-[!LN(https://www.linkedin.com/in/wojciechpazdzierkiewicz)][1]
-[1]: https://www.linkedin.com/in/wojciechpazdzierkiewicz
+https://www.linkedin.com/in/wojciechpazdzierkiewicz
