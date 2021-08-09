@@ -61,6 +61,7 @@ Note:
 dot topology.dot -Tjpg -O
 ```
 and result:
+[](/pics/server.png)
 [](/pics/dot-211x300.jpg)
 
 3. Examples of commands to generate all kind of diagram layouts:
