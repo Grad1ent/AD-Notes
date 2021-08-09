@@ -86,5 +86,30 @@ cscript /nologo getReplicationTopologyLite.vbs DC
 ## Gallery
 
 Below diagrams are examples of AD replication topology:
+<p align="center">
+   <img src="/pics/dot2-300x300.jpg" alt="dot"/>
+</p>
 
+<p align="center">
+   <img src="/pics/fdp1-203x300" alt="fdp"/>
+</p>
 
+However more complex environments (>100 DCs) require a few tricks to make pictures more readable. I usually add dotted style for connections for example:
+```dot
+DIGRAPH replicationTopology {
+ 
+    fontname=helvetica;
+    node [fontname=helvetica, image="server.png", labelloc=b,color=white];
+    edge [style=dotted];
+    ...
+```
+or trying to generate all kind of diagram layouts to choose the most suitable to study. In most cases huge networks need specific approach.
+
+## A few useful links:
+
+1. Official GraphViz web site: http://www.graphviz.org
+2. Dot guide: http://www.graphviz.org/pdf/dotguide.pdf
+3. Wikipedia about GraphViz: http://en.wikipedia.org/wiki/Graphviz
+4. Active Directory Topology Visualization part 2
+
+Let the “more readable replication topology” be with you.
