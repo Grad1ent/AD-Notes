@@ -54,15 +54,18 @@ Note:
 * AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
 * AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
 * example of server picture to put into the same folder where topology.dot is located:
-[](/pics/server.png)
+<p align="center">
+   <img src="/pics/server.png" alt="node"/>
+</p>
 
 2. Command to generate picture of dot diagram layout:
 ```cmd
 dot topology.dot -Tjpg -O
 ```
 and result:
-[](/pics/server.png)
-[](/pics/dot-211x300.jpg)
+<p align="center">
+   <img src="/pics/dot-211x300.jpg" alt="dot"/>
+</p>
 
 3. Examples of commands to generate all kind of diagram layouts:
 ``` cmd
