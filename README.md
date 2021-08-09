@@ -15,7 +15,8 @@ commands even prepared in MS Excel will not tell as much as below screen:
 
 Usage is very simple and requires GraphViz package installed locally and own developed script to prepare input for this tool based on dot language.
 
-1. Below code is dot language script topology.dot used as input for GraphViz package to generate nice diagram:
+### Code
+Below code is dot language script topology.dot used as input for GraphViz package to generate nice diagram:
 ```dot
 DIGRAPH replicationTopologyLite {
  
@@ -51,19 +52,21 @@ DIGRAPH replicationTopologyLite {
 }
 ```
 note:
-* – AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
-* – AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
-* – example of server picture to put into the same folder where topology.dot is located:
+* AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
+* AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
+* example of server picture to put into the same folder where topology.dot is located:
 [](/pics/server.png)
 
-2. Command to generate picture of dot diagram layout:
+### Command
+Command to generate picture of dot diagram layout:
 ```cmd
 dot topology.dot -Tjpg -O
 ```
 and result:
 [](/pics/dot-211x300.jpg)
 
-3. Examples of commands to generate all kind of diagram layouts:
+### Examples
+Examples of commands to generate all kind of diagram layouts:
 ``` cmd
 dot *.dot -Tjpg -odot.jpg
 fdp *.dot -Tjpg -ofdp.jpg
