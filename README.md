@@ -78,7 +78,7 @@ twopi *.dot -Tjpg -otwopi.jpg
 
 Dot file can be prepared manually or a bit smarter. Below vbs is my own developed and many time used script which queries AD regarding to sites, domain controllers and connection objects and generates dot launguage file used later in GraphViz package.
 
-Vbs script is available to download [here]() and feel free to use it:
+Vbs script is available to download [here](/files/getReplicationTopologyLite.zip) and feel free to use it:
 ```cmd
 cscript /nologo getReplicationTopologyLite.vbs DC
 ```
