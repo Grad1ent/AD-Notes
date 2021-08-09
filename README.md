@@ -1,9 +1,11 @@
-# Active Directory and around
-
 ## Table of Contents
+* [Welcome](#welcome)
 * [Articles](#general-information)
 * [Acknowledgements](#acknowledgements)
 * [About me](#about-me)
+
+## Welcome
+The following articles describe solutions developed during daily maintenance of AD and other related services. I’d like to present a few useful tools, technics and share with results.
 
 ## Articles
 * [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
