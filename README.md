@@ -1,23 +1,98 @@
-## Table of Contents
-* [Welcome](#welcome)
-* [Articles](#articles)
-* [About me](#about-me)
+Here is reference to a few quick AD queries.
 
-## Welcome
-The following articles describe solutions developed during daily maintenance of AD and other related services. I’d like to present a few useful tools, tricks and share with results.
+Dump of AD:
 
-## Articles
-* [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
-* [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
-* [Restricting Active Directory replication traffic to the fixed ports](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Restricting-Active-Directory-replication-traffic-to-the-fixed-ports)
+```cmd
+csvde -f ad.csv
+```
 
-## About me
-My name is [Wojciech](http://en.wikipedia.org/wiki/Wojciech).
+List of Domain Controllers:
 
-It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fits 1 000 years ago to warriors or any other persons enjoying of war. Right now it’s more like tradition to name children like their grandpas.
+```cmd
+NLTEST /dclist:<myDomain>
+NETDOM QUERY /D:<myDomain> DC
+DSQUERY SERVER -o rdn
+```
 
-My surname or at least core “Pazdzier” seems to be connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surnames occured in XVI century in Lithuania. Interesting.
+List of FSMO holders:
 
-To avoid rising entropy in the Universe due of posting doubled info You are very welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
+```cmd
+NETDOM QUERY /D:<myDomain> FSMO
+DSQUERY SERVER -hasfsmo SCHEMA
+DSQUERY SERVER -hasfsmo NAME
+DSQUERY SERVER -domain <myDomain> -hasfsmo RID
+DSQUERY SERVER -domain <myDomain> -hasfsmo PDC
+DSQUERY SERVER -domain <myDomain> -hasfsmo INFR
+DCDIAG /s:<myDC> /test:KnowsOfRoleHolders
+```
 
-https://www.linkedin.com/in/wojciechpazdzierkiewicz
+List of Global Catalog holders:
+
+```cmd
+DSQUERY SERVER -domain <myDomain> -isgc
+NLTEST /dsgetdc:<myDomain> /GC
+repadmin /options *
+nslookup gc._msdcs.<myDomain>
+```
+
+List of Sites:
+
+```cmd
+DSQUERY * "CN=Sites,CN=Configuration,DC=<my>,DC=<domain>" -scope onelevel -attr cn
+```
+
+Site where myDC belongs:
+
+```cmd
+NLTEST /server:<myDC> /DsGetSite
+```
+```Powershell
+Get-WmiObject -Namespace root\rsop\computer -Class RSOP_Session | select site
+```
+```cmd
+reg query \\<myDC>\HKLM\SYSTEM\CurrentControlSet\services\Netlogon\Parameters /v "DynamicSiteName"
+```
+
+List of preffered bridgeheads:
+
+```cmd
+DSQUERY * "CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=<my>,DC=<domain>" -attr bridgeheadServerListBL
+```
+
+Domain Controller which authenticated my:
+
+```cmd
+User account:
+    NLTEST /dsgetdc:<myDomain>
+    ECHO %LOGONSERVER%	
+
+Computer account:
+    NLTEST /sc_query:<myDomain>
+    NETDOM verify <myComputer> /domain:<myDomain>
+```
+
+All users:
+
+```cmd
+DSQUERY * -filter "(&(objectCategory=Person)(objectClass=User)) -attr sAMAccountName
+```
+
+Total number of users:
+
+```cmd
+DSQUERY USER forestroot -o dn -limit 0 -name * | find /C /V "~~~~"
+```
+
+All active users:
+
+```cmd
+DSQUERY * -filter "&(objectCategory=user)(userAccountControl=512)" -limit 0
+512 - active
+514 - disabled
+```
+
+Locked users:
+
+```cmd
+DSQUERY * -filter "(&(objectCategory=Person)(objectClass=User)(lockoutTime>=1))"
+```
