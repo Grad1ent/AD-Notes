@@ -83,7 +83,43 @@ repadmin /rehost <myGC> DC=root,DC=local <clean GC>
 </p>
 
 ## References
+The following events are logged during clearing lingering objects:
 
+Events logged on DC without lingering objects:
+* 1388: SRC is off, lingering objects appeared
+* 1988: SRC is on, lingering objects blocked
+* 2042: Too long since source replication
 
+Events logged on DC with lingering objects during:
+```cmd
+repadmin /removelingeringobjects … /advisory_mode
+```
+* 1938: Starting detection summary
+* 1946: For each lingering object detected
+* 1942: Final detection summary
 
+Events logged on DC with lingering objects during:
+```cmd
+repadmin /removelingeringobjects …
+```
+* 1937: Starting removal summary
+* 1945: For each lingering object detected and removed
+* 1939: Final removal summary
 
+[Fixing Replication Lingering Object Problems (Event IDs 1388, 1988, 2042)](http://technet.microsoft.com/en-us/library/cc738018%28v=ws.10%29.aspx)
+
+[Event ID 1388 or 1988: A lingering object is detected](http://technet.microsoft.com/en-us/library/cc780362%28v=ws.10%29.aspx)
+
+[Lingering objects may remain after you bring an out-of-date global catalog server back online](http://support.microsoft.com/kb/314282)
+
+[Outdated Active Directory objects generate event ID 1988 in Windows Server 2003](http://support.microsoft.com/kb/870695)
+
+[How to find and remove lingering objects in Active Directory](http://sandeshdubey.wordpress.com/2011/10/09/how-to-find-and-remove-lingering-objects-in-active-directory/)
+
+[Clean that Active Directory forest of lingering objects](http://blogs.technet.com/b/glennl/archive/2007/07/26/clean-that-active-directory-forest-of-lingering-objects.aspx)
+
+[Repadmin for Experts](http://technet.microsoft.com/en-us/library/cc811549%28v=ws.10%29.aspx)
+
+[Enable strict replication consistency](http://technet.microsoft.com/en-us/library/cc784245%28v=ws.10%29.aspx)
+
+[Clean that Active Directory forest of lingering objects](https://docs.microsoft.com/en-us/archive/blogs/glennl/clean-that-active-directory-forest-of-lingering-objects)
