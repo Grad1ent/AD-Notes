@@ -61,15 +61,17 @@ Pictures of nodes used in diagrams:
 </p>
 DC queried by _vbs_ script
 
+
 <p align="left">
    <img src="/pics/noaccess.png"/>
 </p>
 DC not queried by _vbs_ script because of communication issue
 
+
 <p align="left">
    <img src="/pics/orphan.png"/>
 </p>
-DC not fully [removed](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx) from AD during decommission
+DC not fully removed from AD during [decommission](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx)
 
 ## Gallery
 <p align="center">
@@ -81,7 +83,7 @@ DC not fully [removed](http://technet.microsoft.com/en-us/library/cc816798%28v=w
 </p>
 
 <p align="center">
-   <img src="/fdp7-300x296.jpg"/>
+   <img src="/pics/fdp7-300x296.jpg"/>
 </p>
 
 ## Theory
@@ -90,4 +92,4 @@ DC not fully [removed](http://technet.microsoft.com/en-us/library/cc816798%28v=w
 
 [KCC and Topology Generation](http://technet.microsoft.com/en-us/library/cc961781.aspx)
 
-[Active Directory Topology Visualization part 1]()
+[Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
