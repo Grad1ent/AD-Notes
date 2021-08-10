@@ -1,10 +1,12 @@
+## Overview
+
 Based on solution developed for [Active Directory Topology Visualization (part 1)]() purpose I’ve made very similar script to have nice picture of defined site links in AD.
 
 I think it’s quite good to know if gap in replication is not caused by lack of site link, etc.
 
-Details:
+## Details
 
-Therre is queried via _vbs_ script the following DN:
+The following DN is queried via _vbs_ script:
 
 ```txt
 CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=my,DC=domain
@@ -19,8 +21,6 @@ Usage:
 ```cmd
 cscript /nologo getSiteLinks.vbs
 ```
-
-Gallery:
 
 Result of above vbs script can look like as follow:
 
@@ -58,9 +58,9 @@ GRAPH siteLinks {
 }
 ```
 
-and based on it GraphViz can generate:
+## Gallery:
 
-– dot diagram layout
+_dot_ diagram layout
 ```cmd
 dot *.dot -Tjpg -odot.jpg
 ```
@@ -68,7 +68,7 @@ dot *.dot -Tjpg -odot.jpg
    <img src="/pics/dot3-300x171.jpg"/>
 </p>
 
-– fdp diagram layout
+_fdp_ diagram layout
 ```cmd
 fdp *.dot -Tjpg -ofdp.jpg
 ```
@@ -76,7 +76,7 @@ fdp *.dot -Tjpg -ofdp.jpg
    <img src="/pics/fdp3-277x300.jpg"/>
 </p>
 
-– sfdp diagram layout
+_sfdp_ diagram layout
 ```cmd
 sfdp *.dot -Tjpg -osfdp.jpg
 ```
