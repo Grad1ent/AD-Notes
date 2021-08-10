@@ -1,6 +1,6 @@
 ## Overview
 
-Except of well known ports such 389 TCP/UDP, 636 TCP, 3268 TCP, etc. (full overview is here) Active Directory uses a few ones from dynamic pool for replicaton purposes. If we don’t have strict security policy where is allowed only explicity defined traffic in firewalls we can leave default configuration of communication between domain contollers:
+Except of well known ports such 389 TCP/UDP, 636 TCP, 3268 TCP, etc. (full overview is [here](https://technet.microsoft.com/en-us/library/dd772723%28v=ws.10%29.aspx)) Active Directory uses a few ones from dynamic pool for replicaton purposes. If we don’t have strict security policy where is allowed only explicity defined traffic in firewalls we can leave default configuration of communication between domain contollers:
 
 1024  – 65535 TCP Dynamic RPC W2K/W2K3
 
