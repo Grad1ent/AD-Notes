@@ -19,6 +19,6 @@ It’s Slavic name and means something like “He who is happy in battle“. How
 
 My surname means nothing. However it seems core “Pazdzier” is connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surname occured in XVI century in Lithuania. Whatever.
 
-To avoid rising entropy in the Universe because of posting doubled info I kindly welcome you to have a look in my Linkedin profile to find more details about my experience, skills and overall technical background:
+To avoid rising entropy in the Universe because of posting doubled info You are welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
 
 https://www.linkedin.com/in/wojciechpazdzierkiewicz
