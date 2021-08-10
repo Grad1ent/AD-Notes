@@ -71,7 +71,7 @@ DC not queried by _vbs_ script because of communication issue
 <p align="left">
    <img src="/pics/orphan.png"/>
 </p>
-DC not fully removed from AD during [decommission](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx)
+DC not fully [decomissioned](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx) from AD
 
 ## Gallery
 <p align="center">
