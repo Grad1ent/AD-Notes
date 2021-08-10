@@ -56,22 +56,20 @@ and diagram:
 
 Pictures of nodes used in diagrams:
 
+DC queried by _vbs_ script
 <p align="left">
    <img src="/pics/server.png"/>
 </p>
-DC queried by _vbs_ script
 
-
+DC not queried by _vbs_ script because of communication issue
 <p align="left">
    <img src="/pics/noaccess.png"/>
 </p>
-DC not queried by _vbs_ script because of communication issue
 
-
+DC not fully [decomissioned](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx) from AD
 <p align="left">
    <img src="/pics/orphan.png"/>
 </p>
-DC not fully [decomissioned](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx) from AD
 
 ## Gallery
 <p align="center">
