@@ -61,4 +61,24 @@ GRAPH siteLinks {
 and based on it GraphViz can generate:
 
 – dot diagram layout (command: dot *.dot -Tjpg -odot.jpg):
+<p align="center">
+   <img src="/pics/dot3-300x171.jpg"/>
+</p>
 
+– fdp diagram layout (command: fdp *.dot -Tjpg -ofdp.jpg):
+<p align="center">
+   <img src="/pics/fdp3-277x300.jpg"/>
+</p>
+
+– sfdp diagram layout (command: sfdp *.dot -Tjpg -osfdp.jpg):
+<p align="center">
+   <img src="/pics/sfdp3-270x300.jpg"/>
+</p>
+
+
+Example of site node picture:
+<p align="left">
+   <img src="/pics/site.png"/>
+</p>
+
+There is possible to use any other picture to present site in diagram than above one. The most important is to put picture file of site (site.png in this case) in the same location where dot file is stored before compilation.
