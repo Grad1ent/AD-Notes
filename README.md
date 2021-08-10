@@ -15,10 +15,10 @@ The following articles describe solutions developed during daily maintenance of 
 ## About me
 My name is [Wojciech](http://en.wikipedia.org/wiki/Wojciech).
 
-It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fits 1 000 years ago to warriors or any other persons enjoying of war. So right now it’s just tradition to name children like their grandpas. As the result I’m only “happy in battle” if I get top rank in Battlefield gameplay.
+It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fits 1 000 years ago to warriors or any other persons enjoying of war. Right now it’s more like tradition to name children like their grandpas.
 
-My surname means nothing. However it seems core “Pazdzier” is connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surname occured in XVI century in Lithuania. Whatever.
+My surname or at least core “Pazdzier” seems to be connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surnames occured in XVI century in Lithuania. Interesting.
 
-To avoid rising entropy in the Universe because of posting doubled info You are welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
+To avoid rising entropy in the Universe due of posting doubled info You are very welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
 
 https://www.linkedin.com/in/wojciechpazdzierkiewicz
