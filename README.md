@@ -1,6 +1,6 @@
 ## Table of Contents
 * [Welcome](#welcome)
-* [Articles](#general-information)
+* [Articles](#articles)
 * [About me](#about-me)
 
 ## Welcome
