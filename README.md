@@ -75,7 +75,6 @@ ncacn_ip_tcp:127.0.0.1[5000]
 
 UUID: e3514235-4b06-11d1-ab04-00c04fc2dcd2 MS NT Directory DRS Interface
 ncacn_http:127.0.0.1[6005]
-
 ...
 ```
  
@@ -85,7 +84,6 @@ and _Frs2_ _Service_ to check DFS-R port:
 ...
 UUID: 897e2e5f-93f3-4376-9c9c-fd2277495c27 Frs2 Service
 ncacn_ip_tcp:127.0.0.1[5050]
-
 ...
 ```
 
