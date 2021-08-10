@@ -1,17 +1,17 @@
 ## Overview
 
-Except of discontinued [Microsoft Active Directory Topology Diagrammer](http://www.microsoft.com/en-us/download/details.aspx?id=13380), which required licensed MS Visio installed, there is no easy way to show how physical topology of Active Directory looks like. As the Chinese proverb goes, “A picture is worth a thousand words”, result of 17
+Except of discontinued [Microsoft Active Directory Topology Diagrammer](http://www.microsoft.com/en-us/download/details.aspx?id=13380), which required licensed MS Visio installed, there is no easy way to show how physical topology of Active Directory looks like. As the Chinese proverb goes, “A picture is worth a thousand words”, result of couple
 ```
 repadmin /replsum <DC>
 ```
-commands even prepared in MS Excel will not tell as much as below screen:
+commands will not tell as much as below screen:
 <p align="center">
    <img src="/pics/circo-300x214.jpg" alt="circo"/>
 </p>
 
 ## Details
 
-[GraphViz](http://www.graphviz.org/) is open-source tool based on dot language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is perfect tool to show how Active Directory Domain Controllers replicate each other and allows to find bottleneck or critical paths in AD physical topology.
+[GraphViz](http://www.graphviz.org/) is open-source tool based on _dot_ language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is perfect tool to show how Active Directory Domain Controllers replicate each other and allows to find bottleneck or critical paths in AD physical topology.
 
 Usage is very simple and requires GraphViz package installed locally and own developed script to prepare input for this tool based on dot language.
 
