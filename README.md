@@ -1,4 +1,4 @@
-If you have a look closer into Active Directory Topology Visualization part 1 solution developed some time ago you will find that vbs script queries one domain controller to find replication topology. It is quick approach to have overview of AD replication ASAP. However it represents viewpoint only of this domain controller and sometimes it doesn’t have to be objective true.
+If you have a look closer into [Active Directory Topology Visualization (part 1)]() solution developed some time ago you will find that vbs script queries one domain controller to find replication topology. It is quick approach to have overview of AD replication ASAP. However it represents viewpoint only of this domain controller and sometimes it doesn’t have to be objective true.
 
 If domain controllers replicate each other without any issues and there isn’t any modification in numbers of them (adding, removing, etc.) topology should look very the same on every DC and above solution is absolutely enough. But to have proper recognition of condition of AD environment during its modification there is needed something more comprehensive.
 
