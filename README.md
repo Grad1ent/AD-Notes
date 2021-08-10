@@ -1,31 +1,41 @@
-## Table of Contents
-* [Welcome](#welcome)
-* [Articles](#articles)
-* [About me](#about-me)
+## Overview
 
-## Welcome
-The following articles describe solutions developed during daily maintenance of AD and other related services. I’d like to present a few useful tools, tricks and share with results.
+Lingering objects are not desired entities in AD. If one or more domain controllers are disconnected from environment and back after some period of time (called: [tombstone](http://technet.microsoft.com/pl-pl/library/cc784932%28v=ws.10%29.aspx)), deleted objects can be reintroduced by them. Clearing of AD is serious challenge and requires complex solution in complex environment.
 
-## Articles
-* [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
-* [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
-* [Site links topology](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Site-links-topology)
-* [DFS-R topology](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/DFS-R-topology)
+Microsoft prepared simple tool to perform proper removal. However using it depends on design of the environment. Because connections between all sites are not always fully meshed, lacks in “seeing” domain controllers each other is mitigated by simple trick: one domain controller in particular domains is chosen as reference server for its own domain partition and is used by any other domain controller with global catalog function from other domains as reference source. The best is PDC because it should be accessible at least from any domain controller in its own domain and in theory from other domains. However it’s not really manadatory and any DC can be used. In rare cases of communication issue there is needed additional step described below.
 
+## Practice
 
-* [Restricting Active Directory replication traffic to the fixed ports](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Restricting-Active-Directory-replication-traffic-to-the-fixed-ports)
+Below procedure can be used for effective removal of lingering objects in entire forest. It bases on preparing reference domain controller with clean, writable domain partition, and using it as an authoritative source for any other domain controller holding write (DC) or read-only (GC) version of this partition.
 
+Solution is covered by using following command:
 
-* [Active Directory quick queries](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-quick-queries)
-* [Active Directory quick queries via Powershell](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-quick-queries-via-Powershell)
+```cmd
+repadmin.exe /removelingeringobjects <targetDC> <sourceDCGUID> <partitionDN> | /advisory_mode
+```
 
-## About me
-My name is [Wojciech](http://en.wikipedia.org/wiki/Wojciech).
+Note:
 
-It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fits 1 000 years ago to warriors or any other persons enjoying of war. Right now it’s more like tradition to name children like their grandpas.
+sourceDCGUID can be found in several ways:
 
-My surname or at least core “Pazdzier” seems to be connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surnames occured in XVI century in Lithuania. Interesting.
+```cmd
+repadmin /showreps <myDC>
+nslookup -q=CNAME _msdcs.<my>.<domain>
+dsquery * "CN=NTDS Settings,CN=<myDC>,CN=Servers,CN=<mysite>,CN=Sites,CN=Configuration,DC=<my>,DC=<domain>" -scope base -attr objectGuid
+```
 
-To avoid rising entropy in the Universe due of posting doubled info You are very welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
+This procedure requires to finish three steps in every domain in entire forest:
 
-https://www.linkedin.com/in/wojciechpazdzierkiewicz
+Step 1: Cleaning up domain partition on reference DC
+
+Series of commands run against one choosen DC allow to clean up its partition in reference to all other DCs in this domain:
+
+```cmd
+repadmin /removelingeringobjects <strong>DC1</strong> DC2guid DC=my,DC=domain
+repadmin /removelingeringobjects <strong>DC1</strong> DC3guid DC=my,DC=domain
+...
+repadmin /removelingeringobjects <strong>DC1</strong> DCnguid DC=my,DC=domain
+```
+
+In case of communication issue (because of firewall restriction, etc.) finish clearing process of chosen DC with the rest of DCs and begin again Step 1 with failured ones:
+
