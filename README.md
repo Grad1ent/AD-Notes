@@ -4,16 +4,16 @@ Except of discontinued [Microsoft Active Directory Topology Diagrammer](http://w
 ```
 repadmin /replsum <DC>
 ```
-commands will not tell as much as below screen:
+commands will not tell as much as the following screen:
 <p align="center">
    <img src="/pics/circo-300x214.jpg" alt="circo"/>
 </p>
 
 ## Details
 
-[GraphViz](http://www.graphviz.org/) is open-source tool based on _dot_ language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is perfect tool to show how Active Directory Domain Controllers replicate between each other and allows to find bottleneck or critical paths in AD physical topology.
+[GraphViz](http://www.graphviz.org/) is open-source tool based on _dot_ language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is promissing tool to show how Active Directory Domain Controllers replicate each other and helps to find bottleneck or critical paths in AD physical topology.
 
-Usage is very simple and requires _GraphViz_ package installed locally and own developed script to prepare input for this tool based on _dot_ language syntax.
+Usage is very simple and requires _GraphViz_ package installed locally and own developed script to prepare input based on _dot_ language syntax.
 
 1. Below code can be stored in _*.dot_ srtipt and can be used as an input for _GraphViz_ package to generate nice diagram:
 ```dot
@@ -80,16 +80,17 @@ twopi *.dot -Tjpg -otwopi.jpg
 
 ## Practice
 
-_Dot_ script can be prepared manually or a bit smarter. Below _vbs_ script queries AD to find details about sites, domain controllers and connection objects and generates _dot_ script used later in _GraphViz_ package.
+_Dot_ script can be prepared manually or a bit smarter. Below _vbs_ script queries AD to find details about sites, domain controllers and connection objects and generates _dot_ script used later with _GraphViz_ package.
 
-Vbs script is available to download [here](/files/getReplicationTopologyLite.zip) and feel free to use it:
+_Vbs_ script is available to download [here](/files/getReplicationTopologyLite.zip).
+Usage:
 ```cmd
 cscript /nologo getReplicationTopologyLite.vbs DC
 ```
 
 ## Gallery
 
-Below diagrams are examples of AD replication topology:
+Below diagrams are examples of AD replication topologies generated automaticaly:
 <p align="center">
    <img src="/pics/dot2-300x300.jpg" alt="dot"/>
 </p>
@@ -98,7 +99,7 @@ Below diagrams are examples of AD replication topology:
    <img src="/pics/fdp1-203x300.jpg" alt="fdp"/>
 </p>
 
-However more complex environments (>100 DCs) require a few tricks to make pictures more readable. Adding dotted style edges
+More complex environments (>100 DCs) require a few tricks to make pictures more readable. Adding dotted style edges
 ```dot
 DIGRAPH replicationTopology {
  
