@@ -84,7 +84,7 @@ DC not fully [decomissioned](http://technet.microsoft.com/en-us/library/cc816798
    <img src="/pics/fdp7-300x296.jpg"/>
 </p>
 
-## Theory
+## References
 
 [How Active Directory Replication Topology Works](http://technet.microsoft.com/en-us/library/cc755994%28v=ws.10%29.aspx)
 
