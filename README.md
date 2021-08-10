@@ -14,7 +14,7 @@ CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=my,DC=domain
 
 and result is presented in _dot_ syntax formatted file.
 
-(_vbs_ script can be downloaded from [here](/files/getSiteLinks.zip)
+(_vbs_ script can be downloaded from [here](/files/getSiteLinks.zip))
 
 Usage:
 
