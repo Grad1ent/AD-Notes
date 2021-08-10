@@ -11,11 +11,11 @@ commands will not tell as much as below screen:
 
 ## Details
 
-[GraphViz](http://www.graphviz.org/) is open-source tool based on _dot_ language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is perfect tool to show how Active Directory Domain Controllers replicate each other and allows to find bottleneck or critical paths in AD physical topology.
+[GraphViz](http://www.graphviz.org/) is open-source tool based on _dot_ language dedicated for drawing diagrams. It allows to present any graph or network in simple static form with information like direction of flow between nodes or node specific details. It is perfect tool to show how Active Directory Domain Controllers replicate between each other and allows to find bottleneck or critical paths in AD physical topology.
 
-Usage is very simple and requires GraphViz package installed locally and own developed script to prepare input for this tool based on dot language.
+Usage is very simple and requires _GraphViz_ package installed locally and own developed script to prepare input for this tool based on _dot_ language syntax.
 
-1. Below code is dot language script topology.dot used as input for GraphViz package to generate nice diagram:
+1. Below code can be stored in _*.dot_ srtipt and can be used as an input for _GraphViz_ package to generate nice diagram:
 ```dot
 DIGRAPH replicationTopologyLite {
  
@@ -51,14 +51,14 @@ DIGRAPH replicationTopologyLite {
 }
 ```
 Note:
-* AD Sites: EU, US and AS are specified as SUBGRAPH cluster_XX and are presented as rectangles in final diagram
-* AD DCs: EUDC014, USDC014 and ASDC015 are simply nodes in diagram
-* example of server picture to put into the same folder where topology.dot is located:
+* _EU_, _US_ and _AS_ specified as _SUBGRAPH_ _cluster_XX_ show AD Sites and are presented as rectangles in final diagram
+* _EUDC014_, _USDC014_ and _ASDC015_ are nodes in diagram and represent AD DCs
+* example of server picture to put into the same folder where _*.dot_ sript is located:
 <p align="left">
    <img src="/pics/server.png" alt="node"/>
 </p>
 
-2. Command to generate picture of dot diagram layout:
+2. Command to generate diagram using _dot_ layout:
 ```cmd
 dot topology.dot -Tjpg -O
 ```
@@ -67,7 +67,7 @@ and result:
    <img src="/pics/dot-211x300.jpg" alt="dot"/>
 </p>
 
-3. Examples of commands to generate all kind of diagram layouts:
+3. Examples of commands to generate diagrams with all kind of layouts:
 ``` cmd
 dot *.dot -Tjpg -odot.jpg
 fdp *.dot -Tjpg -ofdp.jpg
@@ -80,7 +80,7 @@ twopi *.dot -Tjpg -otwopi.jpg
 
 ## Practice
 
-Dot file can be prepared manually or a bit smarter. Below vbs is my own developed and many time used script which queries AD regarding to sites, domain controllers and connection objects and generates dot launguage file used later in GraphViz package.
+_Dot_ script can be prepared manually or a bit smarter. Below _vbs_ script queries AD to find details about sites, domain controllers and connection objects and generates _dot_ script used later in _GraphViz_ package.
 
 Vbs script is available to download [here](/files/getReplicationTopologyLite.zip) and feel free to use it:
 ```cmd
@@ -98,7 +98,7 @@ Below diagrams are examples of AD replication topology:
    <img src="/pics/fdp1-203x300.jpg" alt="fdp"/>
 </p>
 
-However more complex environments (>100 DCs) require a few tricks to make pictures more readable. I usually add dotted style for connections for example:
+However more complex environments (>100 DCs) require a few tricks to make pictures more readable. Adding dotted style edges
 ```dot
 DIGRAPH replicationTopology {
  
@@ -107,7 +107,7 @@ DIGRAPH replicationTopology {
     edge [style=dotted];
     ...
 ```
-or trying to generate all kind of diagram layouts to choose the most suitable to study. In most cases huge networks need specific approach.
+or trying to generate diagrams using all kind of layouts help to choose the most suitable topology picture to study. In most cases huge networks require specific approach.
 
 ## A few useful links
 
