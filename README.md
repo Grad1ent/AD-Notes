@@ -1,6 +1,6 @@
 ## Overview
 
-Lingering objects are not desired entities in AD. If one or more domain controllers are disconnected from environment and back after some period of time (called: [tombstone](http://technet.microsoft.com/pl-pl/library/cc784932%28v=ws.10%29.aspx)), deleted objects can be reintroduced by them. Clearing of AD is serious challenge and requires complex solution in complex environment.
+Lingering objects are not desired entities in AD. If one or more domain controllers are disconnected from environment and back after some period of time after [tombstone](http://technet.microsoft.com/pl-pl/library/cc784932%28v=ws.10%29.aspx) life time deleted objects can be reintroduced by them. Clearing of AD is serious challenge and requires complex solution in complex environment.
 
 Microsoft prepared simple tool to perform proper removal. However using it depends on design of the environment. Because connections between all sites are not always fully meshed, lacks in “seeing” domain controllers each other is mitigated by simple trick: one domain controller in particular domains is chosen as reference server for its own domain partition and is used by any other domain controller with global catalog function from other domains as reference source. The best is PDC because it should be accessible at least from any domain controller in its own domain and in theory from other domains. However it’s not really manadatory and any DC can be used. In rare cases of communication issue there is needed additional step described below.
 
