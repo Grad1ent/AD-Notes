@@ -82,3 +82,8 @@ and based on it here is the picture of DFR replication topology as result of the
 fdp *.dot -Tjpg -O)
 ```
 
+<p align="center">
+   <img src="/pics/fdp4-300x278.jpg"/>
+</p>
+
+
