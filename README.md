@@ -21,7 +21,7 @@ Get-ADDomainController -filter * | Select Name, Domain, @{l='IPv4';e={$_.IPv4Add
 "myDomain" | Get-ADDomain | Select -Expand ReplicaDirectoryServers
 ```
 
-DCs numbers per domains in whole forest:
+Number of DCs per domains in entire forest:
 
 ```Powershell
 Get-ADForest | Select -Expand Domains | Get-ADDomain | Select DNSRoot, @{l='DCs';e={ ($_.ReplicaDirectoryServers).Count}} | Format-Table -autosize
