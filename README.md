@@ -90,4 +90,4 @@ Example of site node picture:
    <img src="/pics/site.png"/>
 </p>
 
-There is possible to use any other picture to present site in diagram than above one. The most important is to put picture file of site (_[site.png]_ in this case) in the same location where _dot_ file is stored before compilation.
+There is possible to use any other picture to present site in diagram than above one. The most important is to put picture file of site (_site.png_ in this case) in the same location where _dot_ file is stored before compilation.
