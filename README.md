@@ -31,10 +31,10 @@ Procedure requires to finish three steps on every domain in entire forest:
 Series of commands run against one choosen DC allow to clean up its partition in reference to all other DCs in this domain:
 
 ```cmd
-repadmin /removelingeringobjects __DC1__ DC2guid DC=my,DC=domain
-repadmin /removelingeringobjects __DC1__ DC3guid DC=my,DC=domain
+repadmin /removelingeringobjects DC1 DC2guid DC=my,DC=domain
+repadmin /removelingeringobjects DC1 DC3guid DC=my,DC=domain
 ...
-repadmin /removelingeringobjects __DC1__ DCnguid DC=my,DC=domain
+repadmin /removelingeringobjects DC1 DCnguid DC=my,DC=domain
 ```
 
 In case of communication issue (due of firewall restriction, etc.) with DCxguid there is need to finish clearing process of chosen DC1 with the rest of DCs and begin again Step 1 with failured one:
@@ -48,10 +48,10 @@ In case of communication issue (due of firewall restriction, etc.) with DCxguid 
 Series of commands run against all other DCs of affected domain allow to clean up their partitions in reference to DC choosen in Step 1:
 
 ```cmd
-repadmin /removelingeringobjects DC2 __DC1guid__ DC=my,DC=domain
-repadmin /removelingeringobjects DC3 __DC1guid__ DC=my,DC=domain
+repadmin /removelingeringobjects DC2 DC1guid DC=my,DC=domain
+repadmin /removelingeringobjects DC3 DC1guid DC=my,DC=domain
 ...
-repadmin /removelingeringobjects DCn __DC1guid__ DC=my
+repadmin /removelingeringobjects DCn DC1guid DC=my
 ```
 
 In case of communication issue repeat Step 2 with failured DCs:
@@ -65,10 +65,10 @@ In case of communication issue repeat Step 2 with failured DCs:
 Series of commands run against all GCs located in different domains allow to clean up their read-only version of affected domain partitions in reference to any DCs from Step 1 or Step 2.
 
 ```cmd
-repadmin /removelingeringobjects AB1 __DC1guid__ DC=my,DC=domain
-repadmin /removelingeringobjects CD2 __DC1guid__ DC=my,DC=domain
+repadmin /removelingeringobjects AB1 DC1guid DC=my,DC=domain
+repadmin /removelingeringobjects CD2 DC1guid DC=my,DC=domain
 ...
-repadmin /removelingeringobjects XYn __DC1guid__ DC=my,DC=domain
+repadmin /removelingeringobjects XYn DC1guid DC=my,DC=domain
 ```
 
 In case of communication issue replace DC1guid with any other one from Step 1 or 2. If all DC guids don’t allow to establish proper communication between GC under clearing process and any DC which is owner of affected domain partition, use the nearest last GC which walked through Step 3 without failure, to re-host this partition:
