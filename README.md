@@ -10,6 +10,8 @@ The following articles describe solutions developed during daily maintenance of 
 * [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
 * [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
 * [Restricting Active Directory replication traffic to the fixed ports](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Restricting-Active-Directory-replication-traffic-to-the-fixed-ports)
+* [Active Directory quick queries](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-quick-queries)
+* [Active Directory quick queries via Powershell]()
 
 ## About me
 My name is [Wojciech](http://en.wikipedia.org/wiki/Wojciech).
