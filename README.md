@@ -60,19 +60,25 @@ GRAPH siteLinks {
 
 and based on it GraphViz can generate:
 
-– dot diagram layout (command: dot *.dot -Tjpg -odot.jpg):
+– dot diagram layout
+```cmd
+dot *.dot -Tjpg -odot.jpg
+```
 <p align="center">
    <img src="/pics/dot3-300x171.jpg"/>
 </p>
 
-– fdp diagram layout (command: fdp *.dot -Tjpg -ofdp.jpg):
+– fdp diagram layout
+```cmd
+fdp *.dot -Tjpg -ofdp.jpg
+```
 <p align="center">
    <img src="/pics/fdp3-277x300.jpg"/>
 </p>
 
 – sfdp diagram layout
 ```cmd
-sfdp *.dot -Tjpg -osfdp.jpg)
+sfdp *.dot -Tjpg -osfdp.jpg
 ```
 <p align="center">
    <img src="/pics/sfdp3-270x300.jpg"/>
