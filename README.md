@@ -54,7 +54,7 @@ To check what ports are used for replication purposes simply query 135 TCP enpoi
 portqry.exe -n <myDC> -e 135 -p TCP
 ```
 
-and in the result try to find section: MS NT Directory DRS Interface to check AD replication ports:
+and in the result try to find section _MS_ _NT_ _Directory_ _DRS_ _Interface_ to check AD replication ports:
 
 ```txt
 ...
