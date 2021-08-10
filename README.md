@@ -51,9 +51,43 @@ DIGRAPH replicationTopology {
 
 and diagram:
 <p align="center">
-   <img src="/pics/circo-300x214.jpg" alt="circo"/>
+   <img src="/pics/fdp4-261x300.jpg"/>
 </p>
 
+Pictures of nodes used in diagrams:
 
+<p align="left">
+   <img src="/pics/server.png"/>
+</p>
+DC queried by _vbs_ script
 
+<p align="left">
+   <img src="/pics/noaccess.png"/>
+</p>
+DC not queried by _vbs_ script because of communication issue
 
+<p align="left">
+   <img src="/pics/orphan.png"/>
+</p>
+DC not fully [removed](http://technet.microsoft.com/en-us/library/cc816798%28v=ws.10%29.aspx) from AD during decommission
+
+## Gallery
+<p align="center">
+   <img src="/pics/dot5-276x300.jpg"/>
+</p>
+
+<p align="center">
+   <img src="/pics/fdp6-211x300.jpg"/>
+</p>
+
+<p align="center">
+   <img src="/fdp7-300x296.jpg"/>
+</p>
+
+## Theory
+
+[How Active Directory Replication Topology Works](http://technet.microsoft.com/en-us/library/cc755994%28v=ws.10%29.aspx)
+
+[KCC and Topology Generation](http://technet.microsoft.com/en-us/library/cc961781.aspx)
+
+[Active Directory Topology Visualization part 1]()
