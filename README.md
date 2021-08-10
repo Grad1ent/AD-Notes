@@ -1,4 +1,4 @@
-# Intro
+## Overview
 
 If you have a look closer into [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1) solution developed some time ago you will find that _vbs_ script queries one domain controller to find replication topology. It is quick approach to have overview of AD replication ASAP. However it represents viewpoint only of this domain controller and sometimes it doesn’t have to be objective true.
 
@@ -50,4 +50,10 @@ DIGRAPH replicationTopology {
 ```
 
 and diagram:
+<p align="center">
+   <img src="/pics/circo-300x214.jpg" alt="circo"/>
+</p>
+
+
+
 
