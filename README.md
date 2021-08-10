@@ -1,6 +1,6 @@
 Topology of DFS-R can be easily visualized by using [GraphViz](http://graphviz.org) package.
 
-Based on [Active Directory Topology Visualization (part 1)]() solution it's next script to have clear picture how DFS replication looks like. Design of solution is very the same: _vbs_ script queries AD regarding to DFS replication groups, folders, servers and connections and formats result into _dot_ syntax file. Then _dot_ file is used as input for _GraphViz_ package to generate picture of DFS-R topology.
+Based on [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1) solution it's next script to have clear picture how DFS replication looks like. Design of solution is very the same: _vbs_ script queries AD regarding to DFS replication groups, folders, servers and connections and formats result into _dot_ syntax file. Then _dot_ file is used as input for _GraphViz_ package to generate picture of DFS-R topology.
 
 _vbs_ script can be downloaded [here](/files/getDFSRTopology.zip)
 
@@ -86,4 +86,4 @@ fdp *.dot -Tjpg -O
    <img src="/pics/fdp4-300x278.jpg"/>
 </p>
 
-Rectangles represent replication groups with replication partners. Opposite to [Active Directory Topology Visualization (part 1)]() or [Site links topology]() solutions, where nodes occur only once, here is needed one trick to have the same server in various groups. In line 88 in _vbs_ script I pin to node names additional counter to have group specific servers, however their labels stay the same. It allows to see the same server name in various groups but nodes are different from _dot_ language viewpoint.
+Rectangles represent replication groups with replication partners. Opposite to [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1) or [Site links topology]() solutions, where nodes occur only once, here is needed one trick to have the same server in various groups. In line 88 in _vbs_ script I pin to node names additional counter to have group specific servers, however their labels stay the same. It allows to see the same server name in various groups but nodes are different from _dot_ language viewpoint.
