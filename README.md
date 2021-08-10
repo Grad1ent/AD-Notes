@@ -62,5 +62,3 @@ and based on it GraphViz can generate:
 
 – dot diagram layout (command: dot *.dot -Tjpg -odot.jpg):
 
-
-
