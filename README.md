@@ -2,7 +2,7 @@ Topology of DFS-R can be easily visualized by using [GraphViz](http://graphviz.o
 
 Based on [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1) solution it's next script to have clear picture how DFS replication looks like. Design of solution is very the same: _vbs_ script queries AD regarding to DFS replication groups, folders, servers and connections and formats result into _dot_ syntax file. Then _dot_ file is used as input for _GraphViz_ package to generate picture of DFS-R topology.
 
-_vbs_ script can be downloaded [here](/files/getDFSRTopology.zip)
+(_vbs_ script can be downloaded [here](/files/getDFSRTopology.zip))
 
 Usage:
 
