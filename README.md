@@ -70,7 +70,10 @@ and based on it GraphViz can generate:
    <img src="/pics/fdp3-277x300.jpg"/>
 </p>
 
-– sfdp diagram layout (command: sfdp *.dot -Tjpg -osfdp.jpg):
+– sfdp diagram layout
+```cmd
+sfdp *.dot -Tjpg -osfdp.jpg)
+```
 <p align="center">
    <img src="/pics/sfdp3-270x300.jpg"/>
 </p>
