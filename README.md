@@ -1,28 +1,66 @@
-## Table of Contents
-* [Welcome](#welcome)
-* [Articles](#articles)
-* [About me](#about-me)
+Based on solution developed for [Active Directory Topology Visualization (part 1)]() purpose I’ve made very similar script to have nice picture of defined site links in AD.
 
-## Welcome
-The following articles describe solutions developed during daily maintenance of AD and other related services. I’d like to present a few useful tools, tricks and share with results.
+I think it’s quite good to know if gap in replication is not caused by lack of site link, etc.
 
-## Articles
-* [Active Directory Topology Visualization (part 1)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-1)
-* [Active Directory Topology Visualization (part 2)](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-Topology-Visualization-part-2)
-* [DFS-R topology](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/DFS-R-topology)
+Details:
 
-* [Restricting Active Directory replication traffic to the fixed ports](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Restricting-Active-Directory-replication-traffic-to-the-fixed-ports)
+Therre is queried via _vbs_ script the following DN:
 
-* [Active Directory quick queries](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-quick-queries)
-* [Active Directory quick queries via Powershell](https://github.com/Grad1ent/ActiveDirectoryAndAround/tree/Active-Directory-quick-queries-via-Powershell)
+```txt
+CN=IP,CN=Inter-Site Transports,CN=Sites,CN=Configuration,DC=my,DC=domain
+```
 
-## About me
-My name is [Wojciech](http://en.wikipedia.org/wiki/Wojciech).
+and result is presented in _dot_ syntax formatted file.
 
-It’s Slavic name and means something like “He who is happy in battle“. However origin maybe fits 1 000 years ago to warriors or any other persons enjoying of war. Right now it’s more like tradition to name children like their grandpas.
+(_vbs_ script can be downloaded from [here](/files/getSiteLinks.zip)
 
-My surname or at least core “Pazdzier” seems to be connected somehow to October (pol: pazdziernik) and tail “-wicz” is the end of typical polish surnames occured in XVI century in Lithuania. Interesting.
+Usage:
 
-To avoid rising entropy in the Universe due of posting doubled info You are very welcome to have a look into my Linkedin profile to find more details about experience, skills and overall technical background:
+```cmd
+cscript /nologo getSiteLinks.vbs
+```
 
-https://www.linkedin.com/in/wojciechpazdzierkiewicz
+Gallery:
+
+Result of above vbs script can look like as follow:
+
+```dot
+GRAPH siteLinks {
+
+    node [fontname=helvetica, image="site.png", labelloc=b, color=white];
+ 
+    Site1 -- HQ;
+    Site2 -- Site3;
+    Site2 -- HQ;
+    Site3 -- HQ;
+    Test -- HQ;
+    Site2 -- HQ;
+    Site4 -- HQ;
+    Site5 -- Site6;
+    Site5 -- HQ;
+    Site6 -- HQ;
+    Site6 -- HQ;
+    Site7 -- Site3;
+    Site7 -- HQ;
+    Site3 -- HQ;
+    Site8 -- Site4;
+    Site8 -- Site9;
+    Site8 -- HQ;
+    Site4 -- Site9;
+    Site4 -- HQ;
+    Site9 -- HQ;
+    Backup -- HQ;
+    Site7 -- Site10;
+    Site7 -- HQ;
+    Site10 -- HQ;
+    Test -- HQ;
+ 
+}
+```
+
+and based on it GraphViz can generate:
+
+– dot diagram layout (command: dot *.dot -Tjpg -odot.jpg):
+
+
+
