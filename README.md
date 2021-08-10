@@ -26,7 +26,7 @@ dsquery * "CN=NTDS Settings,CN=<myDC>,CN=Servers,CN=<mysite>,CN=Sites,CN=Configu
 
 This procedure requires to finish three steps in every domain in entire forest:
 
-Step 1: Cleaning up domain partition on reference DC
+### Step 1: Cleaning up domain partition on reference DC
 
 Series of commands run against one choosen DC allow to clean up its partition in reference to all other DCs in this domain:
 
@@ -38,4 +38,52 @@ repadmin /removelingeringobjects <strong>DC1</strong> DCnguid DC=my,DC=domain
 ```
 
 In case of communication issue (because of firewall restriction, etc.) finish clearing process of chosen DC with the rest of DCs and begin again Step 1 with failured ones:
+
+<p align="center">
+   <img src="/pics/linger1-300x111.jpg"/>
+</p>
+
+### Step 2: Cleaning up writable version of domain partition on remaining DCs
+
+Series of commands run against all other DCs of affected domain allow to clean up their partitions in reference to DC choosen in Step 1:
+
+```cmd
+repadmin /removelingeringobjects DC2 DC1guid DC=my,DC=domain
+repadmin /removelingeringobjects DC3 DC1guid DC=my,DC=domain
+...
+repadmin /removelingeringobjects DCn DC1guid DC=my
+```
+
+In case of communication issue repeat Step 2 with failured DCs:
+
+<p align="center">
+   <img src="/pics/linger2-300x113.jpg"/>
+</p>
+
+### Step 3: Cleaning up read-only version of domain partition on all GCs in entire forest
+
+Series of commands run against all GCs located in different domains allow to clean up their read-only version of affected domain partitions in reference to any DCs from Step 1 or Step 2.
+
+```cmd
+repadmin /removelingeringobjects AB1 <strong>DC1guid</strong> DC=my,DC=domain
+repadmin /removelingeringobjects CD2 <strong>DC1guid</strong> DC=my,DC=domain
+...
+repadmin /removelingeringobjects XYn <strong>DC1guid</strong> DC=my,DC=domain
+```
+
+In case of communication issue replace DC1guid with any other one from Step 1 or 2. If all DC guids don’t allow to establish proper communication between GC under clearing process and any DC which is owner of affected domain partition, use the nearest last GC which walked through Step 3 without failure, to re-host this partition:
+
+```cmd
+repadmin /unhost <myGC> DC=root,DC=local
+repadmin /rehost <myGC> DC=root,DC=local <clean GC>
+```
+
+<p align="center">
+   <img src="/pics/linger3-300x223.jpg"/>
+</p>
+
+## References
+
+
+
 
