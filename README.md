@@ -82,7 +82,7 @@ twopi *.dot -Tjpg -otwopi.jpg
 
 _dot_ script can be prepared manually or a bit smarter. Below _vbs_ script queries AD to find details about sites, domain controllers and connection objects and generates _dot_ script used later with _GraphViz_ package.
 
-(_vbs_ script is available to download [here](/files/getReplicationTopologyLite.zip).)
+(_vbs_ script is available to download [here](/files/getReplicationTopologyLite.zip))
 
 Usage:
 ```cmd
