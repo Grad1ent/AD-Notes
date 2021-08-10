@@ -8,7 +8,7 @@ Here is my trial to find full overview of AD physical topology and condition of 
 
 ## Practice
 
-_vbs_ script can be found [here](/files/getReplicationTopology.zip).
+_vbs_ script can be found [here](/files/getReplicationTopology.zip)
 
 Usage:
 ```cmd
