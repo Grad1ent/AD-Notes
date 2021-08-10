@@ -6,7 +6,7 @@ Microsoft prepared a tool to perform proper removal. However usage depends on de
 
 ## Practice
 
-Below procedure can be used for effective removal of lingering objects in entire forest. It bases on preparing reference domain controller with clean, writable domain partition, and using it as an authoritative source for any other domain controller holding write (DC) or read-only (GC) version of this partition.
+Below procedure can be used for effective removal of lingering objects in entire forest. It's based on preparing reference domain controller with clean, writable domain partition, and using it as an authoritative source for any other domain controller holding write (DC) or read-only (GC) version of this partition.
 
 Solution is covered by using following command:
 
@@ -24,20 +24,20 @@ nslookup -q=CNAME _msdcs.<my>.<domain>
 dsquery * "CN=NTDS Settings,CN=<myDC>,CN=Servers,CN=<mysite>,CN=Sites,CN=Configuration,DC=<my>,DC=<domain>" -scope base -attr objectGuid
 ```
 
-This procedure requires to finish three steps in every domain in entire forest:
+Procedure requires to finish three steps on every domain in entire forest:
 
 ### Step 1: Cleaning up domain partition on reference DC
 
 Series of commands run against one choosen DC allow to clean up its partition in reference to all other DCs in this domain:
 
 ```cmd
-repadmin /removelingeringobjects <strong>DC1</strong> DC2guid DC=my,DC=domain
-repadmin /removelingeringobjects <strong>DC1</strong> DC3guid DC=my,DC=domain
+repadmin /removelingeringobjects __DC1__ DC2guid DC=my,DC=domain
+repadmin /removelingeringobjects __DC1__ DC3guid DC=my,DC=domain
 ...
-repadmin /removelingeringobjects <strong>DC1</strong> DCnguid DC=my,DC=domain
+repadmin /removelingeringobjects __DC1__ DCnguid DC=my,DC=domain
 ```
 
-In case of communication issue (because of firewall restriction, etc.) finish clearing process of chosen DC with the rest of DCs and begin again Step 1 with failured ones:
+In case of communication issue (due of firewall restriction, etc.) with DCxguid there is need to finish clearing process of chosen DC1 with the rest of DCs and begin again Step 1 with failured one:
 
 <p align="center">
    <img src="/pics/linger1-300x111.jpg"/>
@@ -48,10 +48,10 @@ In case of communication issue (because of firewall restriction, etc.) finish cl
 Series of commands run against all other DCs of affected domain allow to clean up their partitions in reference to DC choosen in Step 1:
 
 ```cmd
-repadmin /removelingeringobjects DC2 DC1guid DC=my,DC=domain
-repadmin /removelingeringobjects DC3 DC1guid DC=my,DC=domain
+repadmin /removelingeringobjects DC2 __DC1guid__ DC=my,DC=domain
+repadmin /removelingeringobjects DC3 __DC1guid__ DC=my,DC=domain
 ...
-repadmin /removelingeringobjects DCn DC1guid DC=my
+repadmin /removelingeringobjects DCn __DC1guid__ DC=my
 ```
 
 In case of communication issue repeat Step 2 with failured DCs:
@@ -65,10 +65,10 @@ In case of communication issue repeat Step 2 with failured DCs:
 Series of commands run against all GCs located in different domains allow to clean up their read-only version of affected domain partitions in reference to any DCs from Step 1 or Step 2.
 
 ```cmd
-repadmin /removelingeringobjects AB1 <strong>DC1guid</strong> DC=my,DC=domain
-repadmin /removelingeringobjects CD2 <strong>DC1guid</strong> DC=my,DC=domain
+repadmin /removelingeringobjects AB1 __DC1guid__ DC=my,DC=domain
+repadmin /removelingeringobjects CD2 __DC1guid__ DC=my,DC=domain
 ...
-repadmin /removelingeringobjects XYn <strong>DC1guid</strong> DC=my,DC=domain
+repadmin /removelingeringobjects XYn __DC1guid__ DC=my,DC=domain
 ```
 
 In case of communication issue replace DC1guid with any other one from Step 1 or 2. If all DC guids don’t allow to establish proper communication between GC under clearing process and any DC which is owner of affected domain partition, use the nearest last GC which walked through Step 3 without failure, to re-host this partition:
