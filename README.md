@@ -29,7 +29,7 @@ Windows Registry Editor Version 5.00
 #2b. Restricting SYSVOL DFS-R traffic to exemplary 5050 TCP port:
 
 ```cmd
-Dfsrdiag StaticRPC /port:5050 /Member:<myDC>
+dfsrdiag.exe StaticRPC /port:5050 /Member:<myDC>
 ```
 
 #3. RPC dynamic port allocation to exemplary 6000 – 6050 TCP port pool:
